@@ -199,6 +199,19 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<Enter>', { desc = 'Toggle Neovim Tree' })
+
+vim.keymap.set('n', '<leader>j', 'o<Esc>k', { desc = 'Prepend new line' })
+vim.keymap.set('n', '<leader>k', 'o<Esc>j', { desc = 'Append new line' })
+
+vim.keymap.set('v', 's', 'di', { desc = 'Delete and type' })
+vim.keymap.set('n', 's', 'di', { desc = 'Delete and type' })
+
+vim.keymap.set('v', 'gy', '"xy', { desc = 'Yank into register x' })
+vim.keymap.set('n', 'gp', '"xp', { desc = 'Yank into register x' })
+vim.keymap.set('v', 'gp', '"xp', { desc = 'Yank into register x' })
+
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Enter normal mode' })
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -243,6 +256,8 @@ rtp:prepend(lazypath)
 --
 --  To update plugins you can run
 --    :Lazy update
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
@@ -984,7 +999,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
